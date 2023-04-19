@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Solutions 23</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <!-- for tab icon -->
+        <link rel="icon" href="images/solutions-icon.svg" />
+        <link rel="apple-touch-icon" href="images/solutions-icon.svg" />
+        <link rel="manifest" href="manifest.webmanifest" />
+      </head>
+  <body>
+    <div class="blur">
+        <div class="contests_landing">
+            <p class="sheCode_heading">SHE-CODE Solutions'23</p>
+            <p class="sheCode_timing">21 Apr 2023, 6:30PM to 21 Apr 2023, 8:00PM</p>
+        </div>
+    </div>
+    <div class="time_block">
+        <p class="starts_in">Starts in :</p>
+        <div class="timer" id="timer"></div>
+        <div id="button-container"></div>
+    </div>
+
+    <script>
+      // Set the date we're counting down to
+      var countDownDate = new Date("Apr 21 2023 19:45:00").getTime();
+      var buttonCreated = false;
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+        // console.log(now);
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+        // console.log(distance)
+        
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer").innerHTML = "<span class='time-block'>" + "<span class='block'>"+days + "d "+"</span> "+ "<span class='block'>"+hours + "h "+"</span> "+
+        "<span class='block'>"+ minutes + "m "+"</span> " +"<span class='block'>"+ seconds + "s "+"</span> "+ "</span> " ;
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("timer").innerHTML = "";
+            if (!buttonCreated) { // check if button has already been created
+                var button = document.createElement("button");
+                button.innerHTML = "Click Me!";
+                button.onclick = function() {
+                    window.location.href = "https://gogoanime.cl/";
+                };
+                document.getElementById("button-container").appendChild(button);
+                buttonCreated = true; // set flag variable to true to indicate button has been created
+            }
+        }
+      }, 1000); 
+    </script>
+
+        <div class="instructions">
+            <p class="instructions_heading">Instructions</p>
+            <span class="instructions_text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni, dolore debitis. Reprehenderit, saepe excepturi ad quisquam consequuntur ratione cum, ipsam omnis, doloribus suscipit ab amet earum aperiam. Impedit, perspiciatis cum.
+                Id veniam sapiente et alias. </span>
+        </div>
+
+  </body>
+</html>
